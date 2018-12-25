@@ -7,8 +7,8 @@
 #include <stdlib.h>
 #include <netdb.h>
 
-#define REMOTE_ADDR "0.tcp.ngrok.io"
-#define REMOTE_PORT 17232
+#define REMOTE_ADDR "XXX.XXX.XXX.XXX"
+#define REMOTE_PORT XXXXX
 
 #define closesocket(s) close(s)
 typedef struct sockaddr_in SOCKADDR_IN;

